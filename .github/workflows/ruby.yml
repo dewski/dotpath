@@ -1,0 +1,46 @@
+name: Ruby
+
+on: [push]
+
+jobs:
+  build:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby:
+          - "2.5"
+          - "2.6"
+          - "2.7"
+    name: Ruby ${{ matrix.ruby }} test
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --local
+
+      - name: Run Tests
+        run: |
+          bundle exec rake test
+
+      - name: Generate yard documentation
+        run: |
+          bundle exec yard
+
+      - name: Upload test coverage report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: coverage/**/*
+
+      - name: Upload generated yard documentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: yard
+          path: doc/**/*
