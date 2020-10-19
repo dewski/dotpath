@@ -8,12 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-      - name: Rubocop Linter
-        uses: andrewmcodes/rubocop-linter-action@v2.0.0
-        with:
-          additional_gems: "rubocop-rails rubocop-performance"
-          fail_level: "warning"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --local
+
+      - run: bin/rubocop
