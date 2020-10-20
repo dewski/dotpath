@@ -8,13 +8,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Garrett Bjerkhoel']
   spec.email         = ['me@garrettbjerkhoel.com']
 
-  spec.summary       = 'Utilities for building JSON paths for Arrays and Hashes.'
-  spec.description   = 'Utilities for building JSON paths for Arrays and Hashes.'
+  spec.summary       = 'json-path gives you utilities to navigate and modify hashes and arrays in Ruby with the JSON path to each value in the hash or array.'
+  spec.description   = 'json-path gives you utilities to navigate and modify hashes and arrays in Ruby with the JSON path to each value in the hash or array.'
   spec.homepage      = 'https://github.com/dewski/json-path'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
-
-  spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/dewski/json-path'
