@@ -22,7 +22,66 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+json-path gives you utilities to navigate hashes and arrays in Ruby with the
+JSON path to each value in the hash or array.
+
+**Hash**
+
+```ruby
+hash = {
+  action: "user.login",
+  users: [
+    {
+      user: "olddewski",
+      user_id: "1"
+    },
+    {
+      user: "dewski",
+      user_id: "2"
+    },
+  ],
+}
+
+hash.each_with_json_path do |path, value|
+  p [path, value]
+end
+
+# [".action", "user.login"]
+# [".users[0].user", "olddewski"]
+# [".users[0].user_id", "1"]
+# [".users[1].user", "dewski"]
+# [".users[1].user_id", "2"]
+```
+
+**Array**
+
+```ruby
+array = [
+  {
+    action: "user.login",
+    users: [
+      {
+        user: "olddewski",
+        user_id: "1"
+      },
+      {
+        user: "dewski",
+        user_id: "2"
+      },
+    ],
+  },
+]
+
+hash.each_with_json_path do |path, value|
+  p [path, value]
+end
+
+# [".[0].action", "user.login"]
+# [".[0].users[0].user", "olddewski"]
+# [".[0].users[0].user_id", "1"]
+# [".[0].users[1].user", "dewski"]
+# [".[0].users[1].user_id", "2"]
+```
 
 ## Development
 
@@ -33,7 +92,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/json-path. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/json-path/blob/master/CODE_OF_CONDUCT.md).
-
 
 ## License
 
