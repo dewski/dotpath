@@ -25,6 +25,8 @@ Or install it yourself as:
 json-path gives you utilities to navigate hashes and arrays in Ruby with the
 JSON path to each value in the hash or array.
 
+### Navigating hashes and arrays
+
 **Hash**
 
 ```ruby
@@ -72,7 +74,7 @@ array = [
   },
 ]
 
-hash.each_with_json_path do |path, value|
+array.each_with_json_path do |path, value|
   p [path, value]
 end
 
@@ -83,6 +85,94 @@ end
 # [".[0].users[1].user_id", "2"]
 ```
 
+### Mutating hashes and arrays
+
+```ruby
+hash = {
+  action: "user.login",
+  users: [
+    {
+      user: "olddewski",
+      user_id: "1"
+    },
+    {
+      user: "dewski",
+      user_id: "2"
+    },
+  ],
+}
+
+hash.collect_with_json_path do |path, value|
+  if path == ".action"
+    value.gsub('.', '_')
+  else
+    value
+  end
+end
+
+pp hash
+
+# {
+#   action: "user_login",
+#   users: [
+#     {
+#       user: "olddewski",
+#       user_id: "1"
+#     },
+#     {
+#       user: "dewski",
+#       user_id: "2"
+#     },
+#   ],
+# }
+```
+
+**Array**
+
+```ruby
+array = [
+  {
+    action: "user.login",
+    users: [
+      {
+        user: "olddewski",
+        user_id: "1"
+      },
+      {
+        user: "dewski",
+        user_id: "2"
+      },
+    ],
+  },
+]
+
+array.collect_with_json_path do |path, value|
+  if path == ".action"
+    value.gsub('.', '_')
+  else
+    value
+  end
+end
+
+pp array
+
+# [
+#   {
+#     action: "user_login",
+#     users: [
+#       {
+#         user: "olddewski",
+#         user_id: "1"
+#       },
+#       {
+#         user: "dewski",
+#         user_id: "2"
+#       },
+#     ],
+#   },
+# ]
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -91,7 +181,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/json-path. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/json-path/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/dewski/json-path. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/dewski/json-path/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -99,4 +189,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Json::Path project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/json-path/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Json::Path project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/dewski/json-path/blob/master/CODE_OF_CONDUCT.md).
