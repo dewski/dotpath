@@ -6,9 +6,9 @@ module JSON
   module Path
     DELIMITER = '.'
 
-    autoload :Walk, 'json_path/walk'
-    autoload :Mutate, 'json_path/mutate'
-    autoload :Extension, 'json_path/extension'
+    autoload :Walk, 'json/path/walk'
+    autoload :Mutate, 'json/path/mutate'
+    autoload :Extension, 'json/path/extension'
 
     def self.encode(key)
       key = key.to_s
@@ -36,5 +36,5 @@ module JSON
   end
 end
 
-Hash.prepend(JSONPath::Extension)
-Array.prepend(JSONPath::Extension)
+Hash.prepend(JSON::Path::Extension)
+Array.prepend(JSON::Path::Extension)
