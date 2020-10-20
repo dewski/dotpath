@@ -1,8 +1,7 @@
-# Json::Path
+# json-path
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/json/path`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+json-path gives you utilities to navigate and modify hashes and arrays in Ruby
+with the JSON path to each value in the hash or array.
 
 ## Installation
 
@@ -21,9 +20,6 @@ Or install it yourself as:
     $ gem install json-path
 
 ## Usage
-
-json-path gives you utilities to navigate hashes and arrays in Ruby with the
-JSON path to each value in the hash or array.
 
 ### Navigating hashes and arrays
 
@@ -83,6 +79,58 @@ end
 # [".[0].users[0].user_id", "1"]
 # [".[0].users[1].user", "dewski"]
 # [".[0].users[1].user_id", "2"]
+```
+
+### Selecting values from hashes and arrays using JSON paths
+
+**Hash**
+
+```ruby
+hash = {
+  action: "user.login",
+  users: [
+    {
+      user: "olddewski",
+      user_id: "1"
+    },
+    {
+      user: "dewski",
+      user_id: "2"
+    },
+  ],
+}
+
+hash.value_at_path(".action") # => "user.login"
+hash.value_at_path(".users[0].user") # => "olddewski"
+hash.value_at_path(".users[0].user_id") # => "1"
+hash.value_at_path(".users[1].user") # => "dewski"
+hash.value_at_path(".users[1].user_id") # => "2"
+```
+
+**Array**
+
+```ruby
+array = [
+  {
+    action: "user.login",
+    users: [
+      {
+        user: "olddewski",
+        user_id: "1"
+      },
+      {
+        user: "dewski",
+        user_id: "2"
+      },
+    ],
+  },
+]
+
+array.value_at_path(".[0].action") # => "user.login"
+array.value_at_path(".[0].users[0].user") # => "olddewski"
+array.value_at_path(".[0].users[0].user_id") # => "1"
+array.value_at_path(".[0].users[1].user") # => "dewski"
+array.value_at_path(".[0].users[1].user_id") # => "2"
 ```
 
 ### Mutating hashes and arrays
@@ -189,4 +237,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Json::Path project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/dewski/json-path/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the json-path project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/dewski/json-path/blob/master/CODE_OF_CONDUCT.md).
