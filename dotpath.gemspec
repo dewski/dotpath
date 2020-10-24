@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
-require_relative 'lib/json/path/version'
+require_relative 'lib/dotpath/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'json-path'
-  spec.version       = JSON::Path::VERSION
+  spec.name          = 'dotpath'
+  spec.version       = Dotpath::VERSION
   spec.authors       = ['Garrett Bjerkhoel']
   spec.email         = ['me@garrettbjerkhoel.com']
 
-  spec.summary       = 'json-path gives you utilities to navigate and modify hashes and arrays in Ruby with the JSON path to each value in the hash or array.'
-  spec.description   = 'json-path gives you utilities to navigate and modify hashes and arrays in Ruby with the JSON path to each value in the hash or array.'
-  spec.homepage      = 'https://github.com/dewski/json-path'
+  spec.summary       = 'dotpath gives you utilities to navigate and modify hashes and arrays in Ruby with the JSON path to each value in the hash or array.'
+  spec.description   = 'dotpath gives you utilities to navigate and modify hashes and arrays in Ruby with the JSON path to each value in the hash or array.'
+  spec.homepage      = 'https://github.com/dewski/dotpath'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/dewski/json-path'
-  spec.metadata['changelog_uri'] = 'https://github.com/dewski/json-path'
+  spec.metadata['source_code_uri'] = 'https://github.com/dewski/dotpath'
+  spec.metadata['changelog_uri'] = 'https://github.com/dewski/dotpath'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

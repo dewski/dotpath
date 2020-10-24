@@ -1,6 +1,6 @@
-# json-path
+# dotpath
 
-json-path gives you utilities to navigate and modify hashes and arrays in Ruby
+dotpath gives you utilities to navigate and modify hashes and arrays in Ruby
 with the JSON path to each value in the hash or array.
 
 ## Installation
@@ -8,7 +8,7 @@ with the JSON path to each value in the hash or array.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'json-path'
+gem 'dotpath'
 ```
 
 And then execute:
@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install json-path
+    $ gem install dotpath
 
 ## Usage
 
@@ -229,7 +229,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/dewski/json-path. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/dewski/json-path/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/dewski/dotpath. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/dewski/dotpath/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -237,4 +237,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the json-path project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/dewski/json-path/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the dotpath project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/dewski/dotpath/blob/master/CODE_OF_CONDUCT.md).

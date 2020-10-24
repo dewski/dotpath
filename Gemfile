@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in json-path.gemspec
+# Specify your gem's dependencies in dotpath.gemspec
 gemspec
 
 gem 'minitest', '~> 5.0'
